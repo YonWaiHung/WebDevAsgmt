@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir=“LTR”>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Font Embedment --> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto+Serif&display=swap" rel="stylesheet">
+        <!-- Attaching CSS File -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/cssHub.css">
+        <!-- Attaching JavaScript File -->
+        <script src="js/pay.js"></script>
+
+        <title>Payment Page</title>
+    </head>
+
+    <body>
+        <header>
+            <div>
+                <a href="index.html">YWH Manga</a>
+                <p> BY Yon Wai Hung</p>
+            </div>
+        </header>
+
+        <!--- Navigation Bar --->
+        <div class="dropdownMenu" id="dropdownM">
+            <a href="#" class="active">Menu</a>
+            <a href="index.html" Title="Home page of YWH Manga bookshop">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            
+            <a href="javascript:void(0);" class="icon" Title="Drodown Icon"><i class="fa fa-bars"></i></a>
+        </div>
+
+        <!-- Payment Input Field -->
+        <section id="payBox">
+            <h2>Payment</h2>
+            <div id="cardOption">
+                <h3 id="cardOption">Debit / Credit Card</h3>
+                <img src="images/Mastercard-Logo.png" alt="Mastercard-Logo">
+            </div>
+            <h3 id="errorMsg"></h3>
+            <div id="paymentDetails">
+                <h3>Card Number</h3>
+                <input type="text" id="cardNo" placeholder="5***************" maxlength="16">
+                <h3>Expiration Date</h3>
+                <select id="month">
+                    <option value="-1">MM</option>
+                    <option value="1">01</option>
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                    <option value="6">06</option>
+                    <option value="7">07</option>
+                    <option value="8">08</option>
+                    <option value="9">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <select id="year">
+                    <option value="-1">YY</option>
+                    <option value="2030">30</option>
+                    <option value="2029">29</option>
+                    <option value="2028">28</option>
+                    <option value="2027">27</option>
+                    <option value="2026">26</option>
+                    <option value="2025">25</option>
+                    <option value="2024">24</option>
+                    <option value="2023">23</option>
+                </select>
+                <h3>CVV</h3>
+                <input type="text" id="cvv" placeholder="*** / ****" maxLength="4">
+            </div>
+            <input type="submit" id="continue" value="Continue">
+        </section>
+    </body>
+
+</html>

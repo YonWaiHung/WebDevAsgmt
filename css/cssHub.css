@@ -1,0 +1,244 @@
+/* ------------GLOBAL STYLES------------ */
+/* box model fix: Adjust content box including padding & border space */
+html { box-sizing: border-box; }
+
+*, *:before, *::after { box-sizing: border-box; }
+
+body {
+    /* Flexible background image. */
+    background-image: url(../images/mushishi-cropped.jpg); 
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Roboto Serif', serif;
+}
+
+img { /* Keep each images' attributes consistent */
+    float: left;
+    max-width: 30%;
+    max-height: 234px;
+    margin: 0 10px 0 0;
+}
+
+a { text-decoration: none; }
+
+/* ----------------HEADER--------------- */
+header {
+    font-family: 'Permanent Marker', cursive; /* Imported font from Google Font */
+    color: white;
+    background-color: rgb(36, 35, 35);
+}
+
+header a {
+    color: white;
+    margin: 0 auto;
+    font-size: 50px;
+    padding-top: 10px;
+}
+
+header p {
+    margin: 0;
+    padding: 5px;
+}
+
+/* ------------NAIGATION BAR------------ */
+
+.dropdownMenu {
+    background: rgb(47, 48, 97);
+    overflow: hidden;
+}
+
+.dropdownMenu a {
+    display: inline-block;
+    color: #F7FFF7;
+    margin: 0 5%;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+
+/* Additional aesthetics when mouse are hovering on content*/
+.dropdownMenu a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* hide the menu & top right button by default */
+.dropdownMenu a.active, .dropdownMenu .icon {
+    display: none;
+}
+
+/* ------------BOOK LIST------------ */
+
+.book {
+    max-width: 45%;
+    background: rgba(255, 255, 255, 0.651);
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 20px 20px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.bookDetails {
+    overflow: hidden; /* Keep book details from surrounding the image */
+}
+
+.bookSynopsis {
+    font-size: 90%;
+    height: 6rem;
+    overflow: auto; /* Add scroll bar for long synopsis */
+}
+
+.payBtn {
+    background: #2F3061;
+    color: #F7FFF7;
+    padding: 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+.book:hover {
+    background: rgb(255, 255, 255);
+}
+
+/* Additional aesthetics when mouse is hovering pay button */
+.payBtn:hover { background: rgba(47, 48, 97, 80%); }
+
+/* ----------------------------PAY.HTML---------------------------- */
+/* ------------PAYMENT INPUT------------ */
+#payBox {
+    max-width: 800px;
+    width: 80vw;
+    margin: 50px auto;
+    font-size: 80%;
+    padding: 50px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#payBox h2{ margin-top: 0; }
+
+#paymentDetails{
+    text-align: start;
+    justify-content: flex-start;
+}
+
+/* Keep error message bar hidden before any error occured */
+#errorMsg { display: none;}
+
+#errorMsgOccured{
+    display: block;
+    font: 100% 'Courier New', Courier;
+    padding: 10px;
+    color: red;
+    background: #ffb1b1;
+    border: red solid;
+    border-radius: 8px;
+}
+
+#paymentDetails select , #paymentDetails input{ 
+    font-size: 15px; 
+}
+
+#paymentDetails input {
+    width: 100%;
+}
+
+#cardOption { /* Keep title and mastercard img inline */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cardOption img { /* Maintain aspect ratio of the image */
+    max-width: 80px;
+    height: fit-content;
+}
+
+#continue {
+    background: #2F3061;
+    color: #F7FFF7;
+    font-family: 'Roboto Serif', serif;
+    padding: 8px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+/* ----------------------------SUCCESS.HTML---------------------------- */
+/* ------------COMPLETION MSG------------ */
+#successMsg {
+    max-width: 800px;
+    width: 80vw;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+#continueBtn {
+    background: #2F3061;
+    color: #F7FFF7;
+    padding: 8px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* ------------MEDIA QUERY------------ */
+/* Add changes in certain elements if screen is within desired screen size*/
+@media screen and (max-width: 600px) {
+    .dropdownMenu a.active { display: block; }
+
+    /* hide all dropdown content except first one */
+    .dropdownMenu a:not(:first-child) { display: none; }
+
+    .active {
+        float: left;
+        display: block;
+    }
+    /* display menu icon when in mobile screen */
+    .dropdownMenu a.icon {
+        float: right;
+        display: block;
+    }
+
+    .dropdownMenu { position: relative; }
+
+    /* menu icon placement after pressed */
+    .dropdownMenu.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    /* summon rest of dropdown content when menu bar is pressed */
+    .dropdownMenu.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    #successMsg {
+        font-size: 10px;
+    }
+}
+
+/* Add changes in certain elements if screen is within typical mobile size*/
+@media screen and (max-width: 1100px) { 
+    /* Change width of the book item box */
+    .book { 
+        max-width: 100%; 
+        background: rgb(255, 255, 255);
+        font-size: 0.75rem;
+    }
+}
+
